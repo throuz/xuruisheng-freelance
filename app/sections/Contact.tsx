@@ -1,9 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  useEffect(() => {
+    emailjs.init({ publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY! });
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,17 +27,14 @@ export default function Contact() {
 
     try {
       await emailjs.send(
-        "YOUR_SERVICE_ID", // 替換為您的 EmailJS Service ID
-        "YOUR_TEMPLATE_ID", // 替換為您的 EmailJS Template ID
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
           from_name: formData.name,
           from_email: formData.email,
           project_type: formData.project,
           message: formData.message,
-          to_name: "徐叡陞", // 您的名字
-          reply_to: formData.email,
-        },
-        "YOUR_PUBLIC_KEY" // 替換為您的 EmailJS Public Key
+        }
       );
 
       setStatus({ submitting: false, submitted: true, error: false });
