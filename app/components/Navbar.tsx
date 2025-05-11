@@ -17,6 +17,9 @@ export default function Navbar() {
             >
               服務項目
             </Link>
+            <Link href="#pricing" className="text-gray-600 hover:text-gray-900">
+              價格方案
+            </Link>
             <Link
               href="#experience"
               className="text-gray-600 hover:text-gray-900"

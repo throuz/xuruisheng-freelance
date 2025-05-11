@@ -3,6 +3,7 @@ import Hero from "./sections/Hero";
 import Services from "./sections/Services";
 import Experience from "./sections/Experience";
 import Contact from "./sections/Contact";
+import Pricing from "./sections/Pricing";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <Pricing />
         <Experience />
         <Contact />
       </main>
