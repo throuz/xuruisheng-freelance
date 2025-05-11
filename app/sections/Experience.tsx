@@ -1,18 +1,22 @@
 export default function Experience() {
   const experiences = [
     {
-      period: "2021 - 現在",
-      title: "資深前端工程師",
-      company: "自由接案",
+      period: "2022年4月 - 至今",
+      title: "前端工程師",
+      company: "Apex Marketing Ltd",
+      tags: ["遠端工作", "博弈產業"],
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
       description:
-        "專注於開發高品質的網頁應用，為客戶提供客製化的解決方案。主要使用 React、Next.js 和 TypeScript。",
+        "負責開發和維護大型線上博弈平台的前端系統，使用現代化的 React 技術棧，專注於提供流暢的使用者體驗和高效能的網頁應用。",
     },
     {
-      period: "2019 - 2021",
+      period: "2020年8月 - 2022年6月",
       title: "前端工程師",
-      company: "科技公司",
+      company: "Vangood Technology Ltd",
+      tags: ["博弈產業"],
+      skills: ["Vue", "TypeScript"],
       description:
-        "負責開發和維護大型企業級應用，使用 React 生態系統，並導入 TypeScript 提升程式碼品質。",
+        "使用 Vue 和 TypeScript 開發線上博弈平台，負責前端功能實作和系統優化，確保網站的穩定性和使用者體驗。",
     },
   ];
 
@@ -28,14 +32,37 @@ export default function Experience() {
               key={index}
               className="relative bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
-              <span className="text-sm font-semibold text-blue-600">
-                {exp.period}
-              </span>
-              <h3 className="mt-2 text-xl font-bold text-gray-900">
-                {exp.title}
-              </h3>
-              <p className="mt-1 text-lg text-gray-700">{exp.company}</p>
+              <div className="flex flex-wrap justify-between items-start gap-4">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">
+                    {exp.title} • {exp.company}
+                  </h3>
+                  <p className="mt-1 text-sm font-semibold text-blue-600">
+                    {exp.period}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {exp.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
               <p className="mt-4 text-gray-600">{exp.description}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {exp.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
