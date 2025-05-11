@@ -241,7 +241,7 @@ export default function Contact() {
           </p>
           <div className="mt-4 flex items-center justify-center space-x-4">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:zed2786328@example.com"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -249,7 +249,7 @@ export default function Contact() {
               </svg>
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/throuz"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600 transition-colors"

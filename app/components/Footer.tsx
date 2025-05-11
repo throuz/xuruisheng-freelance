@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col items-center space-y-8">
           <div className="flex space-x-6">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/throuz"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-gray-600"
@@ -22,7 +22,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/xuruisheng/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-gray-600"
