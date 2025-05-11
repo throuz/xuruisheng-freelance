@@ -17,29 +17,25 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl text-center">
+        <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl text-center">
           工作經驗
         </h2>
         <div className="mt-12 space-y-8">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="relative bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
-              <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
+              <span className="text-sm font-semibold text-blue-600">
                 {exp.period}
               </span>
-              <h3 className="mt-2 text-xl font-bold text-gray-900 dark:text-white">
+              <h3 className="mt-2 text-xl font-bold text-gray-900">
                 {exp.title}
               </h3>
-              <p className="mt-1 text-lg text-gray-600 dark:text-gray-300">
-                {exp.company}
-              </p>
-              <p className="mt-4 text-gray-500 dark:text-gray-400">
-                {exp.description}
-              </p>
+              <p className="mt-1 text-lg text-gray-700">{exp.company}</p>
+              <p className="mt-4 text-gray-600">{exp.description}</p>
             </div>
           ))}
         </div>

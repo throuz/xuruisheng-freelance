@@ -2,7 +2,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-gray-50 border-t border-gray-200">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center space-y-8">
           <div className="flex space-x-6">
@@ -10,7 +10,7 @@ export default function Footer() {
               href="https://github.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+              className="text-gray-500 hover:text-gray-600"
             >
               <span className="sr-only">GitHub</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -25,7 +25,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+              className="text-gray-500 hover:text-gray-600"
             >
               <span className="sr-only">LinkedIn</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@ export default function Footer() {
               </svg>
             </a>
           </div>
-          <p className="text-center text-base text-gray-400">
+          <p className="text-center text-base text-gray-600">
             &copy; {currentYear} 徐叡陞. All rights reserved.
           </p>
         </div>

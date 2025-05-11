@@ -26,13 +26,13 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="projects" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
             精選作品
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-400">
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
             展示一些我近期完成的專案作品
           </p>
         </div>
@@ -41,17 +41,17 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white dark:bg-gray-800"
+              className="flex flex-col rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden bg-white border border-gray-100"
             >
               <div className="flex-shrink-0">
-                <div className="h-48 w-full bg-gray-200 dark:bg-gray-700" />
+                <div className="h-48 w-full bg-gray-100" />
               </div>
               <div className="flex-1 p-6 flex flex-col justify-between">
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-xl font-semibold text-gray-900">
                     {project.title}
                   </h3>
-                  <p className="mt-3 text-base text-gray-500 dark:text-gray-400">
+                  <p className="mt-3 text-base text-gray-600">
                     {project.description}
                   </p>
                 </div>
@@ -59,7 +59,7 @@ export default function Projects() {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                      className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-50 text-blue-700"
                     >
                       {tech}
                     </span>
