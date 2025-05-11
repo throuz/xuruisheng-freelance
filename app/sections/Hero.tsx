@@ -20,14 +20,6 @@ export default function Hero() {
                 與我聯繫
               </a>
             </div>
-            <div className="mt-3 sm:mt-0 sm:ml-3">
-              <a
-                href="#projects"
-                className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
-              >
-                查看作品
-              </a>
-            </div>
           </div>
         </div>
       </div>

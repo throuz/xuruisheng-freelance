@@ -23,12 +23,6 @@ export default function Navbar() {
             >
               工作經驗
             </Link>
-            <Link
-              href="#projects"
-              className="text-gray-600 hover:text-gray-900"
-            >
-              作品集
-            </Link>
             <Link href="#contact" className="text-gray-600 hover:text-gray-900">
               聯絡我
             </Link>
