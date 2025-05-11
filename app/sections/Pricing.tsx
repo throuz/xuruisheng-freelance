@@ -1,44 +1,60 @@
 import { CheckIcon } from "../components/icons/CheckIcon";
 
 export default function Pricing() {
-  const pricingPlans = [
+  const pricingItems = [
     {
-      name: "基礎網站開發",
-      price: "NT$ 50,000 起",
+      name: "單頁切版（RWD）",
+      price: "NT$ 6,000 起",
       features: [
-        "響應式單頁網站",
-        "基礎 SEO 優化",
-        "網站分析整合",
-        "基礎表單功能",
-        "免費維護 1 個月",
+        "依設計稿進行切版",
+        "RWD 響應式設計",
+        "基本互動效果（Hover、Active）",
+        "跨瀏覽器相容性測試",
+        "原始碼提交",
       ],
-      description: "適合小型企業或個人的展示型網站",
+      description: "適合需要快速建立單一頁面的專案",
     },
     {
-      name: "進階網站開發",
-      price: "NT$ 150,000 起",
+      name: "登入／註冊頁面",
+      price: "NT$ 8,000 起",
       features: [
-        "多頁面動態網站",
-        "會員系統整合",
-        "第三方 API 串接",
-        "進階 SEO 優化",
-        "後台管理系統",
-        "免費維護 3 個月",
+        "完整的表單驗證",
+        "API 串接整合",
+        "響應式設計（RWD）",
+        "錯誤處理機制",
+        "安全性考量",
       ],
-      description: "適合中型企業或電商網站",
+      description: "適合需要會員系統的網站",
     },
     {
-      name: "客製化開發",
-      price: "NT$ 300,000 起",
+      name: "資料列表與編輯功能",
+      price: "NT$ 10,000 起",
       features: [
-        "完整專案規劃",
-        "客製化功能開發",
-        "系統架構設計",
-        "效能最佳化",
-        "完整技術文件",
-        "免費維護 6 個月",
+        "完整 CRUD 功能",
+        "分頁功能",
+        "搜尋與篩選",
+        "表單驗證",
+        "API 串接整合",
       ],
-      description: "適合大型企業或特殊需求專案",
+      description: "適合需要資料管理功能的後台系統",
+    },
+  ];
+
+  const hourlyServices = [
+    {
+      name: "小功能或修改",
+      price: "NT$ 800/hr 起",
+      description: "按鈕行為、UI 調整、小邏輯修改等",
+    },
+    {
+      name: "全站前端開發",
+      price: "專案估價",
+      description: "含頁面切版、狀態管理、API 串接、部署等",
+    },
+    {
+      name: "長期合作支援",
+      price: "可另議",
+      description: "可按週／月計費，提供穩定維運或功能開發支援",
     },
   ];
 
@@ -47,29 +63,29 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            服務方案
+            服務項目報價
           </h2>
           <p className="mt-4 text-xl text-gray-600">
-            根據您的需求提供最適合的解決方案
+            透明的項目計價，為您的需求提供最適合的解決方案
           </p>
         </div>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">
-          {pricingPlans.map((plan) => (
+          {pricingItems.map((item) => (
             <div
-              key={plan.name}
+              key={item.name}
               className="relative flex flex-col rounded-2xl border border-gray-200 p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-900">
-                  {plan.name}
+                  {item.name}
                 </h3>
-                <p className="mt-4 text-gray-600">{plan.description}</p>
+                <p className="mt-4 text-gray-600">{item.description}</p>
                 <p className="mt-8 text-3xl font-bold text-gray-900">
-                  {plan.price}
+                  {item.price}
                 </p>
                 <ul className="mt-8 space-y-4">
-                  {plan.features.map((feature) => (
+                  {item.features.map((feature) => (
                     <li key={feature} className="flex items-start">
                       <div className="flex-shrink-0">
                         <CheckIcon className="h-6 w-6 text-blue-500" />
@@ -91,12 +107,37 @@ export default function Pricing() {
           ))}
         </div>
 
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
+            其他服務項目
+          </h3>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {hourlyServices.map((service) => (
+              <div
+                key={service.name}
+                className="p-6 rounded-lg border border-gray-200 bg-gray-50"
+              >
+                <h4 className="text-lg font-semibold text-gray-900">
+                  {service.name}
+                </h4>
+                <p className="mt-2 text-gray-600">{service.description}</p>
+                <p className="mt-4 text-xl font-semibold text-blue-600">
+                  {service.price}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="mt-12 text-center">
           <p className="text-base text-gray-600">
             * 實際價格會根據專案需求、功能複雜度和開發時程進行調整
           </p>
           <p className="mt-2 text-base text-gray-600">
-            * 所有方案都包含完整原始碼和技術支援
+            * 所有方案都包含完整原始碼和基本技術支援
+          </p>
+          <p className="mt-2 text-base text-gray-600">
+            * 可根據專案需求提供客製化報價
           </p>
         </div>
       </div>
