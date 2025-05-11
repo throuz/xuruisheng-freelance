@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,9 +11,37 @@ export default function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState({
+    submitting: false,
+    submitted: false,
+    error: false,
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setStatus({ submitting: true, submitted: false, error: false });
+
+    try {
+      await emailjs.send(
+        "YOUR_SERVICE_ID", // 替換為您的 EmailJS Service ID
+        "YOUR_TEMPLATE_ID", // 替換為您的 EmailJS Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          project_type: formData.project,
+          message: formData.message,
+          to_name: "徐叡陞", // 您的名字
+          reply_to: formData.email,
+        },
+        "YOUR_PUBLIC_KEY" // 替換為您的 EmailJS Public Key
+      );
+
+      setStatus({ submitting: false, submitted: true, error: false });
+      setFormData({ name: "", email: "", project: "", message: "" });
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      setStatus({ submitting: false, submitted: false, error: true });
+    }
   };
 
   const handleChange = (
@@ -139,11 +168,68 @@ export default function Contact() {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                  disabled={status.submitting}
+                  className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white 
+                    ${
+                      status.submitting
+                        ? "bg-blue-400 cursor-not-allowed"
+                        : "bg-blue-600 hover:bg-blue-700"
+                    } 
+                    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors`}
                 >
-                  發送訊息
+                  {status.submitting ? "發送中..." : "發送訊息"}
                 </button>
               </div>
+
+              {status.submitted && (
+                <div className="rounded-md bg-green-50 p-4">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <svg
+                        className="h-5 w-5 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-green-800">
+                        訊息已發送成功！我會盡快回覆您。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {status.error && (
+                <div className="rounded-md bg-red-50 p-4">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <svg
+                        className="h-5 w-5 text-red-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-red-800">
+                        發送失敗，請稍後再試或直接寄信給我。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </form>
           </div>
         </div>
